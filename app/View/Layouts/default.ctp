@@ -22,8 +22,13 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
+		Sprint
+		<?php
+		/*
 		<?php echo $cakeDescription ?>:
 		<?php echo $this->fetch('title'); ?>
+		*/
+		?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
@@ -44,54 +49,54 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div id="container">
 
-
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">
-						<img alt="Sprint" src="...">
-					</a>
-				</div>
-
-				<ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+          <?php echo $this->Html->link('Sprint', '/', array('class' => 'navbar-brand')); ?>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            
           </ul>
-        </li>
-      </ul>
-		</nav>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
+    <div class="container" style="padding-top: 80px;">
+    	<?php echo $this->Session->flash(); ?>
+
+    	<?php echo $this->fetch('content'); ?>
+
+    </div>
+
+    <?php
+    /*
+	<div id="container">
 		<div id="content">
-
-			<?php echo $this->Session->flash(); ?>
-
-
-
-			<?php echo $this->fetch('content'); ?>
-
-
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
+			<?php 
+			/*echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
 					'http://www.cakephp.org/',
 					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
 				);
+				* /
 			?>
 			<p>
-				<?php echo $cakeVersion; ?>
+				<?php //echo $cakeVersion; ?>
 			</p>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
+	*/
+	?>
 </body>
 </html>

@@ -8,7 +8,7 @@ class BacklogColumn extends AppModel {
 	public $displayField = 'name';
 	public $order = 'order';
 	
-	public $belongsTo = 'Team';
+	//public $belongsTo = 'Team';
 	//public $hasMany = 'Valor';
 
 }
