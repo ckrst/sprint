@@ -26,11 +26,14 @@ class TeamsController extends AppController {
 		//echo "<PRE>";
 		//die(var_dump($team));
 
-		$lastDaily = $this->Daily->find('first', array(
-			'order' => array('ddate DESC')
+		$spr = $this->Sprint->find('first', array(
+			'conditions' => array(
+				'Sprint.team_id' => $id
+				),
+			'order' => array(
+				'start'
+				)
 			));
-
-		$spr['Sprint'] = $lastDaily['Sprint'];
 
 		$values = $this->ColumnValue->find('all', array(
 			'conditions' => array(
