@@ -19,7 +19,7 @@ class Team extends AppModel {
 
         'BacklogColumn' => array(
             'className' => 'BacklogColumn',
-            'foreignKey' => 'col_id',
+            'foreignKey' => 'team_id',
             'order' => 'BacklogColumn.order'
         )
 
