@@ -5,7 +5,7 @@
 		<label for="txtDate" class="col-sm-2 control-label">Date</label>
 
 		<div class="col-sm-10">
-			<?php echo $this->Form->text('date', array('class' => 'form-control')); ?>
+			<?php echo $this->Form->text('ddate', array('class' => 'form-control')); ?>
 		</div>
 	</div>
 	<div class="form-group">

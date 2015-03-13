@@ -48,7 +48,7 @@
 				
 				?>
 				<tr>
-					<td><?php echo $dailyItem['Daily']['date']; ?></td>
+					<td><?php echo $dailyItem['Daily']['ddate']; ?></td>
 				</tr>
 				<?php
 			}

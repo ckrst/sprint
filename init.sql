@@ -80,7 +80,7 @@ DROP TABLE IF EXISTS `daily`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `daily` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `date` date DEFAULT NULL,
+  `ddate` date DEFAULT NULL,
   `sprint_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_daily_sprint_idx` (`sprint_id`),
@@ -108,6 +108,7 @@ CREATE TABLE `sprint` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `team_id` bigint(20) DEFAULT NULL,
+  `start` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_sprint_team_idx` (`team_id`),
   CONSTRAINT `fk_sprint_team` FOREIGN KEY (`team_id`) REFERENCES `team` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION

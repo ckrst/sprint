@@ -6,8 +6,8 @@ class Daily extends AppModel {
 
 	public $name = 'Daily';
 	public $useTable = 'daily';
-	public $displayField = 'date';
-	public $order = 'Daily.date DESC';
+	public $displayField = 'ddate';
+	public $order = 'Daily.ddate DESC';
 
 	
 	public $belongsTo = 'Sprint';

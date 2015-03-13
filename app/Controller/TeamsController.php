@@ -25,7 +25,7 @@ class TeamsController extends AppController {
 		$team = $this->Team->findById($id);
 
 		$lastDaily = $this->Daily->find('first', array(
-			'order' => array('date DESC')
+			'order' => array('ddate DESC')
 			));
 
 		$spr['Sprint'] = $lastDaily['Sprint'];
@@ -34,6 +34,9 @@ class TeamsController extends AppController {
 			'conditions' => array(
 				'Daily.sprint_id' => $spr['Sprint']['id']
 				),
+			'order' => array(
+				'Daily.ddate ASC'
+				)
 			));
 
 		$this->set('dailys', $this->Daily->find('all', array(
@@ -41,7 +44,7 @@ class TeamsController extends AppController {
 				'sprint_id' => $spr['Sprint']['id']
 				),
 			'order' => array(
-				'date ASC'
+				'ddate ASC'
 				)
 
 			)));
@@ -52,10 +55,9 @@ class TeamsController extends AppController {
 
 
 		foreach ($values as $valueItem) {
-			$matrix[$valueItem['BacklogColumn']['name']][$valueItem['Daily']['date']] = $valueItem['ColumnValue']['value'];
+			$matrix[$valueItem['BacklogColumn']['name']][$valueItem['Daily']['ddate']] = $valueItem['ColumnValue']['value'];
 		}
 
-		//die(var_dump($matrix));
 		$this->set('matrix', $matrix);
 		
 	}
@@ -107,7 +109,7 @@ class TeamsController extends AppController {
 				'Sprint.team_id' => $id
 				),
 			'order' => array(
-				'date DESC'
+				'ddate DESC'
 				)
 			)
 			
