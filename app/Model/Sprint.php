@@ -8,6 +8,11 @@ class Sprint extends AppModel {
 	public $displayField = 'name';
 	
 	public $belongsTo = 'Team';
-	//public $hasMany = 'Valor';
+	public $hasMany = array(
+		'Daily' => array(
+			'className' => 'Daily',
+			'foreign_key' => 'daily_id'
+			)
+	);
 
 }
