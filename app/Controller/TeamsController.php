@@ -23,6 +23,8 @@ class TeamsController extends AppController {
 
 	public function view($id) {
 		$team = $this->Team->findById($id);
+		echo "<PRE>";
+		die(var_dump($team));
 
 		$lastDaily = $this->Daily->find('first', array(
 			'order' => array('ddate DESC')

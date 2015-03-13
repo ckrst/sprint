@@ -8,6 +8,21 @@ class Team extends AppModel {
 	public $displayField = 'name';
 	
 	//public $belongsTo = 'Objeto';
-	public $hasMany = array('Sprint', 'BacklogColumn');
+	public $hasMany = array(
+		
+
+		'Sprint' => array(
+            'className' => 'Sprint',
+            'foreignKey' => 'team_id',
+            'order' => 'Sprint.start'
+        ),
+
+        'BacklogColumn' => array(
+            'className' => 'BacklogColumn',
+            'foreignKey' => 'col_id',
+            'order' => 'BacklogColumn.order'
+        )
+
+	);
 
 }
