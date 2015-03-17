@@ -102,7 +102,7 @@ $('#container').highcharts({
             type: 'area'
         },
         title: {
-            text: 'Sprint Burndown'
+            text: 'Sprint Burnup'
         },
         subtitle: {
             text: 'meta do sprint'
