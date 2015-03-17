@@ -45,10 +45,10 @@
 		<table class="table">
 			<?php
 			foreach ($dailys as $dailyItem) {
-				
 				?>
 				<tr>
-					<td><?php echo $dailyItem['Daily']['ddate']; ?></td>
+					<td><?php echo date("d-m-Y", strtotime($dailyItem['Daily']['ddate'])); ?></td>
+					<td><?php echo $this->Html->link('Delete','/Teams/deleteDaily/' . $dailyItem['Daily']['id'],array('class' => 'btn btn-default'));?></td>
 				</tr>
 				<?php
 			}

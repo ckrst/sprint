@@ -160,4 +160,16 @@ class TeamsController extends AppController {
 
 		$this->set('team', $team);
 	}
+
+	public function deleteDaily($dailyId) {		
+		$daily = $this->Daily->findById($dailyId);
+		$team = $this->Team->findById($daily['Sprint']['team_id']);
+		
+		foreach ($daily['ColumnValue'] as $index => $columnValueItem) {
+			$this->ColumnValue->delete($columnValueItem['id']);
+		}
+		$this->Daily->delete($dailyId);
+
+		return $this->redirect('/Teams/daily/' . $team['Team']['id']);	
+	}
 }

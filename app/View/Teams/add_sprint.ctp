@@ -7,7 +7,7 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="txtTeamId" class="col-sm-2 control-label">Team</label>
+		<label for="txtTeamId" class="col-sm-2 control-label">Team (ID)</label>
 
 		<div class="col-sm-10">
 			<?php echo $this->Form->text('team_id', array('class' => 'form-control')); ?>
@@ -15,7 +15,7 @@
 	</div>
 
 	<div class="form-group">
-		<label for="txtStart" class="col-sm-2 control-label">Team</label>
+		<label for="txtStart" class="col-sm-2 control-label">Start (YYYY-MM-DD)</label>
 
 		<div class="col-sm-10">
 			<?php echo $this->Form->text('start', array('class' => 'form-control')); ?>

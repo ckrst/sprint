@@ -14,7 +14,8 @@ class ColumnValue extends AppModel {
 		),
 		'BacklogColumn' => array(
 			'className' => 'BacklogColumn',
-			'foreignKey' => 'col_id'
+			'foreignKey' => 'col_id',
+			'order' => 'order'
 		)
 	);
 	//public $hasMany = 'Valor';
