@@ -43,12 +43,17 @@
 	if (count($dailys) > 0) {
 		?>
 		<table class="table">
+			<tr>
+				<td>Date</td>
+				<td>Delete</td>
+			</tr>
+
 			<?php
 			foreach ($dailys as $dailyItem) {
 				?>
 				<tr>
 					<td><?php echo date("d-m-Y", strtotime($dailyItem['Daily']['ddate'])); ?></td>
-					<td><?php echo $this->Html->link('Delete','/Teams/deleteDaily/' . $dailyItem['Daily']['id'],array('class' => 'btn btn-default'));?></td>
+					<td><?php echo $this->Html->link('','/Teams/deleteDaily/' . $dailyItem['Daily']['id'],array('class' => 'btn glyphicon glyphicon-trash'));?></td>
 				</tr>
 				<?php
 			}
