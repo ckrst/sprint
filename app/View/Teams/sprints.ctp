@@ -47,6 +47,7 @@
 			foreach ($sprints as $sprintItem) {
 				?>
 				<tr>
+					<td><?php echo $sprintItem['id']; ?></td>
 					<td><?php echo $sprintItem['name']; ?></td>
 				</tr>
 				<?php
