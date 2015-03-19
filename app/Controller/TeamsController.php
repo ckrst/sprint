@@ -56,8 +56,7 @@ class TeamsController extends AppController {
 
 		$this->set('team', $team);
 		$this->set('sprint', $spr);
-		$this->set('values', $values);
-
+		$this->set('values', $values);   	
 
 		foreach ($values as $valueItem) {
 			$matrix[$valueItem['BacklogColumn']['name']][$valueItem['Daily']['ddate']] = $valueItem['ColumnValue']['value'];
@@ -119,7 +118,7 @@ class TeamsController extends AppController {
 			)
 			
 			);
-
+			
 		$this->set('team', $team);
 		$this->set('dailys', $dailys);
 	}
@@ -128,10 +127,6 @@ class TeamsController extends AppController {
 		$team = $this->Team->findById($teamId);
 
 		if ($this->request->is('post')) {
-			//echo "<PRE>";
-			//die(var_dump($this->request->data));
-
-
 
 			$this->Daily->create();
 			if ($this->Daily->save($this->request->data)) {
@@ -151,7 +146,6 @@ class TeamsController extends AppController {
 					array_push($valData, $valItem);
 
 				}
-				//die(var_dump($this->request->data));
 				$this->ColumnValue->saveMany($valData);
 
 				return $this->redirect('/Teams/daily/' . $team['Team']['id']);	

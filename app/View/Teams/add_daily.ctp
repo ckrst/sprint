@@ -5,7 +5,7 @@
 		<label for="txtDate" class="col-sm-2 control-label">Date</label>
 
 		<div class="col-sm-10">
-			<?php echo $this->Form->text('ddate', array('class' => 'form-control')); ?>
+			<?php echo $this->Form->text('ddate',array('type'=>'date','class' => 'form-control date')); ?>
 		</div>
 	</div>
 	<div class="form-group">
@@ -24,7 +24,7 @@
 			<label for="txtTeamId" class="col-sm-2 control-label"><?php echo $columnItem['name']; ?></label>
 
 			<div class="col-sm-10">
-				<input type="text" id="DailyValue" class="form-control" name="data[ColumnValue][<?php echo $index; ?>][value]">
+				<input type="number" id="DailyValue" class="form-control" name="data[ColumnValue][<?php echo $index; ?>][value]">
 			</div>
 	</div>
 		<?php

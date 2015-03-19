@@ -15,10 +15,10 @@
 	</div>
 
 	<div class="form-group">
-		<label for="txtStart" class="col-sm-2 control-label">Start (YYYY-MM-DD)</label>
+		<label for="txtStart" class="col-sm-2 control-label">Start</label>
 
 		<div class="col-sm-10">
-			<?php echo $this->Form->text('start', array('class' => 'form-control')); ?>
+			<?php echo $this->Form->text('start',array('type'=>'date','class' => 'form-control date')); ?>
 		</div>
 	</div>
 	

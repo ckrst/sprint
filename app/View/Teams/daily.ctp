@@ -45,7 +45,7 @@
 		<table class="table">
 			<tr>
 				<td>Date</td>
-				<td>Delete</td>
+				<td>Ações</td>
 			</tr>
 
 			<?php
@@ -53,7 +53,17 @@
 				?>
 				<tr>
 					<td><?php echo date("d-m-Y", strtotime($dailyItem['Daily']['ddate'])); ?></td>
-					<td><?php echo $this->Html->link('','/Teams/deleteDaily/' . $dailyItem['Daily']['id'],array('class' => 'btn glyphicon glyphicon-trash'));?></td>
+					<td class="actions" style="width: 1px">
+                        <div class="btn-group">
+                            <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="icon-cog"></i>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="pull-right dropdown-menu">
+                                <li><?php echo $this->Html->link(__('<i class="glyphicon glyphicon-trash"></i> Excluir'), array('action' => 'deleteDaily', $dailyItem['Daily']['id']), array('escape' => false), __('Você tem certeza que deseja excluir o registro do dia # %s?', date("d-m-Y", strtotime($dailyItem['Daily']['ddate'])))); ?></li>
+                            </ul>
+                        </div>
+                    </td>
 				</tr>
 				<?php
 			}
