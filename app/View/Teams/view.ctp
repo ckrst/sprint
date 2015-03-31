@@ -12,13 +12,13 @@
 	</li>
 
 	<li role="presentation">
-		<a href="<?php echo $this->Html->url('/Teams/sprints/' . $team['Team']['id']); ?>">
+		<a href="<?php echo $this->Html->url('/Sprints/view/' . $team['Team']['id']); ?>">
 			<span class="glyphicon glyphicon-gift"></span>
 		</a>
 	</li>
 
 	<li role="presentation">
-		<a href="<?php echo $this->Html->url('/Teams/daily/' . $team['Team']['id']); ?>">
+		<a href="<?php echo $this->Html->url('/Dailys/view/' . $team['Team']['id']); ?>">
 			<span class="glyphicon glyphicon-calendar"></span>
 		</a>
 	</li>
@@ -102,7 +102,7 @@ $('#container').highcharts({
             type: 'area'
         },
         title: {
-            text: 'Sprint Burnup'
+            text: 'CFD (Cumulative Flow Diagrams)'
         },
         subtitle: {
             text: 'meta do sprint'
@@ -116,12 +116,12 @@ $('#container').highcharts({
         },
         yAxis: {
             title: {
-                text: 'Story points'
+                text: 'Total Item(s)'
             },
         },
         tooltip: {
             shared: true,
-            valueSuffix: ' points'
+            valueSuffix: ' Item(s)'
         },
         plotOptions: {
             area: {

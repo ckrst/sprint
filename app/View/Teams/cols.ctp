@@ -12,13 +12,13 @@
 	</li>
 
 	<li role="presentation">
-		<a href="<?php echo $this->Html->url('/Teams/sprints/' . $team['Team']['id']); ?>">
+		<a href="<?php echo $this->Html->url('/Sprints/view/' . $team['Team']['id']); ?>">
 			<span class="glyphicon glyphicon-gift"></span>
 		</a>
 	</li>
 
 	<li role="presentation">
-		<a href="<?php echo $this->Html->url('/Teams/daily/' . $team['Team']['id']); ?>">
+		<a href="<?php echo $this->Html->url('/Dailys/view/' . $team['Team']['id']); ?>">
 			<span class="glyphicon glyphicon-calendar"></span>
 		</a>
 	</li>

@@ -11,14 +11,14 @@
 		</a>
 	</li>
 
-	<li role="presentation">
-		<a href="<?php echo $this->Html->url('/Teams/sprints/' . $team['Team']['id']); ?>">
+	<li role="presentation" class="active">
+		<a href="<?php echo $this->Html->url('/Sprints/view/' . $team['Team']['id']); ?>">
 			<span class="glyphicon glyphicon-gift"></span>
 		</a>
 	</li>
 
-	<li role="presentation" class="active">
-		<a href="<?php echo $this->Html->url('/Teams/daily/' . $team['Team']['id']); ?>">
+	<li role="presentation">
+		<a href="<?php echo $this->Html->url('/Dailys/view/' . $team['Team']['id']); ?>">
 			<span class="glyphicon glyphicon-calendar"></span>
 		</a>
 	</li>
@@ -34,25 +34,26 @@
 
 <div>
 	<?php echo $this->Html->link(
-    'New daily',
-    '/Teams/addDaily/' . $team['Team']['id'],
+    'New sprint',
+    '/Sprints/add/' . $team['Team']['id'],
     array('class' => 'btn btn-default')
 ); ?>
 	<br><br>
 	<?php
-	if (count($dailys) > 0) {
+	if (count($sprints) > 0) {
 		?>
 		<table class="table">
-			<tr>
-				<td>Date</td>
-				<td>Ações</td>
-			</tr>
-
+		<tr>
+			<td>Name</td>
+			<td>Date Start</td>
+			<td>Action</td>
+		</tr>
 			<?php
-			foreach ($dailys as $dailyItem) {
+			foreach ($sprints as $sprintItem) {
 				?>
 				<tr>
-					<td><?php echo date("d-m-Y", strtotime($dailyItem['Daily']['ddate'])); ?></td>
+					<td><?php echo $sprintItem['name']; ?></td>
+					<td><?php echo date("d-m-Y", strtotime($sprintItem['start'])); ?></td>
 					<td class="actions" style="width: 1px">
                         <div class="btn-group">
                             <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
@@ -60,7 +61,7 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="pull-right dropdown-menu">
-                                <li><?php echo $this->Html->link(__('<i class="glyphicon glyphicon-trash"></i> Excluir'), array('action' => 'deleteDaily', $dailyItem['Daily']['id']), array('escape' => false), __('Você tem certeza que deseja excluir o registro do dia # %s?', date("d-m-Y", strtotime($dailyItem['Daily']['ddate'])))); ?></li>
+                                <li><?php echo $this->Html->link(__('<i class="glyphicon glyphicon-trash"></i> Excluir'), array('action' => 'delete', $sprintItem['id']), array('escape' => false), __('Você tem certeza que deseja excluir o registro # %s?', $sprintItem['name'])); ?></li>
                             </ul>
                         </div>
                     </td>
