@@ -102,7 +102,7 @@ $('#container').highcharts({
             type: 'area'
         },
         title: {
-            text: 'CFD (Cumulative Flow Diagrams)'
+            text: 'Sprint Burnup'
         },
         subtitle: {
             text: 'meta do sprint'
@@ -116,12 +116,12 @@ $('#container').highcharts({
         },
         yAxis: {
             title: {
-                text: 'Total Item(s)'
+                text: 'Story points'
             },
         },
         tooltip: {
             shared: true,
-            valueSuffix: ' Item(s)'
+            valueSuffix: ' points'
         },
         plotOptions: {
             area: {
