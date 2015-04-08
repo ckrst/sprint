@@ -21,7 +21,7 @@
 		<label for="txtOrder" class="col-sm-2 control-label">Order</label>
 
 		<div class="col-sm-10">
-			<?php echo $this->Form->text('order', array('class' => 'form-control')); ?>
+			<?php echo $this->Form->text('order', array('class' => 'form-control', 'type' => 'number','onkeypress' => 'return SomenteNumero(event)')); ?>
 		</div>
 	</div>
 	<div class="form-group">
@@ -31,3 +31,14 @@
 	</div>
 
 <?php echo $this->Form->end(); ?>
+
+<script language='JavaScript'>
+function SomenteNumero(e){
+    var tecla=(window.event)?event.keyCode:e.which;   
+    if((tecla>47 && tecla<58)) return true;
+    else{
+    	if (tecla==8 || tecla==0) return true;
+	else  return false;
+    }
+}
+</script>

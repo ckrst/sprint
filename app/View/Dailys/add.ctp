@@ -28,7 +28,7 @@
 			<label for="txtTeamId" class="col-sm-2 control-label"><?php echo $columnItem['name']; ?></label>
 
 			<div class="col-sm-10">
-				<input type="number" id="DailyValue" class="form-control" name="data[ColumnValue][<?php echo $index; ?>][value]">
+				<input type="number" onkeypress='return SomenteNumero(event)' id="DailyValue" class="form-control" name="data[ColumnValue][<?php echo $index; ?>][value]">
 			</div>
 	</div>
 		<?php
@@ -42,3 +42,14 @@
 	</div>
 
 <?php echo $this->Form->end(); ?>
+
+<script language='JavaScript'>
+function SomenteNumero(e){
+    var tecla=(window.event)?event.keyCode:e.which;   
+    if((tecla>47 && tecla<58)) return true;
+    else{
+    	if (tecla==8 || tecla==0) return true;
+	else  return false;
+    }
+}
+</script>
