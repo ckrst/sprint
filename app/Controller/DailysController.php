@@ -15,7 +15,6 @@ class DailysController extends AppController {
 	public function view($id) {
 		$team = $this->Team->findById($id);
 
-
 		$dailys = $this->Daily->find('all', array(
 			'conditions' => array(
 				'Sprint.team_id' => $id
@@ -33,9 +32,9 @@ class DailysController extends AppController {
 
 	public function add($teamId) {
 		$team = $this->Team->findById($teamId);
-
+		$sprints = $this->Sprint->findAllByTeamId($teamId);
+		$this->set('sprints', $sprints);
 		if ($this->request->is('post')) {
-
 			$this->Daily->create();
 			if ($this->Daily->save($this->request->data)) {
 				$dailyId = $this->Daily->id;
@@ -55,8 +54,7 @@ class DailysController extends AppController {
 
 				}
 				$this->ColumnValue->saveMany($valData);
-
-				return $this->redirect('/Dailys/view/' . $team['Team']['id']);	
+				return $this->redirect('/Dailys/view/' . $teamId);	
 			}
 		}
 
@@ -73,5 +71,4 @@ class DailysController extends AppController {
 
 		return $this->redirect('/Dailys/view/' . $team['Team']['id']);	
 	}
-
 }

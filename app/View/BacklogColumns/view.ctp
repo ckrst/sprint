@@ -6,7 +6,7 @@
 	</li>
 
 	<li role="presentation" class="active">
-		<a href="<?php echo $this->Html->url('/Teams/cols/' . $team['Team']['id']); ?>">
+		<a href="<?php echo $this->Html->url('/BacklogColumns/view/' . $team['Team']['id']); ?>">
 			<span class="glyphicon glyphicon-list"></span>
 		</a>
 	</li>
@@ -34,7 +34,7 @@
 <div>
 	<?php echo $this->Html->link(
     'New column',
-    '/Teams/addCol/' . $team['Team']['id'],
+    '/BacklogColumns/add/' . $team['Team']['id'],
     array('class' => 'btn btn-default')
 ); ?>
 	<br><br>
@@ -42,12 +42,28 @@
 	if (count($columns) > 0) {
 		?>
 		<table class="table">
+		<tr>
+			<td>Order</td>
+			<td>Name</td>
+			<td>Action</td>
+		</tr>
 			<?php
 			foreach ($columns as $columnItem) {
 				?>
 				<tr>
 					<td><?php echo $columnItem['order']; ?></td>
 					<td><?php echo $columnItem['name']; ?></td>
+					<td class="actions" style="width: 1px">
+                        <div class="btn-group">
+                            <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="icon-cog"></i>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="pull-right dropdown-menu">
+                                <li><?php echo $this->Html->link(__('<i class="glyphicon glyphicon-trash"></i> Excluir'), array('action' => 'delete', $columnItem['id']), array('escape' => false), __('Você tem certeza que deseja excluir o registro # %s?', $columnItem['name'])); ?></li>
+                            </ul>
+                        </div>
+                    </td>
 				</tr>
 				<?php
 			}

@@ -65,23 +65,4 @@ class TeamsController extends AppController {
 		$this->set('matrix', $matrix);
 		
 	}
-
-	public function cols($id) {
-		$team = $this->Team->findById($id);
-
-		$columns = $team['BacklogColumn'];
-		$this->set('team', $team);
-		$this->set('columns', $columns);
-	}
-
-	public function addCol($teamId) {
-		$team = $this->Team->findById($teamId);
-
-		if ($this->request->is('post')) {
-			$this->BacklogColumn->create();
-			if ($this->BacklogColumn->save($this->request->data)) {
-			}
-			return $this->redirect('/Teams/cols/' . $team['Team']['id']);	
-		}
-	}
 }

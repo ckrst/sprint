@@ -19,13 +19,14 @@ class SprintsController extends AppController {
 	}
 
 	public function add($teamId) {
-		$team = $this->Team->findById($teamId);
+		$teams = $this->Team->find('all');
+		$this->set('teams', $teams);
 
 		if ($this->request->is('post')) {
 			$this->Sprint->create();
 			if ($this->Sprint->save($this->request->data)) {
 			}
-			return $this->redirect('/Sprints/view/' . $team['Team']['id']);	
+			return $this->redirect('/Sprints/view/' . $teamId);	
 		}
 	}
 

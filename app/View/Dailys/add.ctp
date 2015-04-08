@@ -12,7 +12,11 @@
 		<label for="txtTeamId" class="col-sm-2 control-label">Sprint</label>
 
 		<div class="col-sm-10">
-			<?php echo $this->Form->text('sprint_id', array('class' => 'form-control')); ?>
+			<select name="data[Daily][sprint_id]" class="form-control">
+				<?php foreach ($sprints as $sprint):?>
+		        	<option value=<?=$sprint['Sprint']['id']?>><?=__($sprint['Sprint']['name'])?></option>
+            	<?php endforeach; ?>
+            </select>
 		</div>
 	</div>
 

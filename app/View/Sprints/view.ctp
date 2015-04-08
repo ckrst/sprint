@@ -6,7 +6,7 @@
 	</li>
 
 	<li role="presentation">
-		<a href="<?php echo $this->Html->url('/Teams/cols/' . $team['Team']['id']); ?>">
+		<a href="<?php echo $this->Html->url('/BacklogColumns/view/' . $team['Team']['id']); ?>">
 			<span class="glyphicon glyphicon-list"></span>
 		</a>
 	</li>

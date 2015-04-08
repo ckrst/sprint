@@ -6,7 +6,7 @@
 	</li>
 
 	<li role="presentation">
-		<a href="<?php echo $this->Html->url('/Teams/cols/' . $team['Team']['id']); ?>">
+		<a href="<?php echo $this->Html->url('/BacklogColumns/view/' . $team['Team']['id']); ?>">
 			<span class="glyphicon glyphicon-list"></span>
 		</a>
 	</li>
@@ -70,21 +70,9 @@ if (count($matrix)) {
 		array_push($lastDay, $pieSerie);
 	}
 
-	
-
-
-	
-
-
-
-
 }
 
 $categoriesLbl = implode('\',\'', $categories);
-//die($categoriesLbl)
-
-
-
 ?>
 
 
@@ -92,20 +80,35 @@ $categoriesLbl = implode('\',\'', $categories);
 
 $(function () {
 
-    
+var titleText;
+var subtitleText;
+var pointsText;
+var tooltipText;
+
+var title = "<?php echo $team['Team']['method']; ?>";
 
 
-
+if (title == 'KANBAN') {
+    titleText = 'CFD (Cumulative Flow Diagrams)';
+    subtitleText = '';
+    pointsText = 'User Story points';
+    tooltipText = ' US';
+} else {
+    titleText = 'Sprint Burnup';
+    subtitleText = 'Meta do Sprint';
+    pointsText = 'Story points';
+    tooltipText = ' points';
+}
 
 $('#container').highcharts({
         chart: {
             type: 'area'
         },
         title: {
-            text: 'Sprint Burnup'
+            text: titleText
         },
         subtitle: {
-            text: 'meta do sprint'
+            text: subtitleText
         },
         xAxis: {
             categories: ['<?php echo $categoriesLbl; ?>'],
@@ -116,12 +119,12 @@ $('#container').highcharts({
         },
         yAxis: {
             title: {
-                text: 'Story points'
+                text: pointsText
             },
         },
         tooltip: {
             shared: true,
-            valueSuffix: ' points'
+            valueSuffix: tooltipText
         },
         plotOptions: {
             area: {
@@ -141,43 +144,42 @@ $('#container').highcharts({
 
 
 
-    
-$('#container2').highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false
-        },
-        title: {
-            text: 'Sprint Backlog'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+if (title != 'KANBAN') {    
+    $('#container2').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'Sprint Backlog'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
                     }
                 }
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: 'Browser share',
-            data: [
-            	<?php echo implode(',', $lastDay); ?>
-                
-            ]
-        }]
-    });
-    
-
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                data: [
+                	<?php echo implode(',', $lastDay); ?>
+                    
+                ]
+            }]
+        });
+}
 
 });
 

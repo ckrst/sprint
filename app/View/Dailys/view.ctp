@@ -6,7 +6,7 @@
 	</li>
 
 	<li role="presentation">
-		<a href="<?php echo $this->Html->url('/Teams/cols/' . $team['Team']['id']); ?>">
+		<a href="<?php echo $this->Html->url('/BacklogColumns/view/' . $team['Team']['id']); ?>">
 			<span class="glyphicon glyphicon-list"></span>
 		</a>
 	</li>
@@ -60,9 +60,10 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="pull-right dropdown-menu">
-                                <li><?php echo $this->Html->link(__('<i class="glyphicon glyphicon-trash"></i> Excluir'), array('action' => 'delete', $dailyItem['Daily']['id']), array('escape' => false), __('Você tem certeza que deseja excluir o registro do dia # %s?', date("d-m-Y", strtotime($dailyItem['Daily']['ddate'])))); ?></li>
+                                <li><?php echo $this->Html->link(__('<i class="glyphicon glyphicon-trash"></i> Delete'), array('action' => 'delete', $dailyItem['Daily']['id']), array('escape' => false), __('Are you sure you want to delete the record of the day # %s?', date("d-m-Y", strtotime($dailyItem['Daily']['ddate'])))); ?></li>
                             </ul>
                         </div>
+
                     </td>
 				</tr>
 				<?php

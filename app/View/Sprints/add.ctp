@@ -7,10 +7,14 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="txtTeamId" class="col-sm-2 control-label">Team (ID)</label>
-
+		<label for="txtTeamId" class="col-sm-2 control-label">Team</label>
+		
 		<div class="col-sm-10">
-			<?php echo $this->Form->text('team_id', array('class' => 'form-control')); ?>
+			<select name="data[Sprint][team_id]" class="form-control">
+				<?php foreach ($teams as $team):?>
+		        	<option value=<?=$team['Team']['id']?>><?=__($team['Team']['name'])?></option>
+            	<?php endforeach; ?>
+            </select>
 		</div>
 	</div>
 
