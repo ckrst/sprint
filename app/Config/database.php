@@ -1,6 +1,6 @@
 <?php
 
-define('DB_HOST', 	getenv('OPENSHIFT_MYSQL_DB_HOST') 		== '' ? 'localhost' 	: getenv('OPENSHIFT_MYSQL_DB_HOST'));
+define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST') 		== '' ? 'localhost' 	: getenv('OPENSHIFT_MYSQL_DB_HOST'));
 define('DB_PORT',	getenv('OPENSHIFT_MYSQL_DB_PORT'));
 define('DB_USER',	getenv('OPENSHIFT_MYSQL_DB_USERNAME') 	== '' ? 'root' 			: getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
 define('DB_PASS',	getenv('OPENSHIFT_MYSQL_DB_PASSWORD')) 	== '' ? '' 				: getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
@@ -58,7 +58,7 @@ define('DB_NAME',	getenv('OPENSHIFT_GEAR_NAME') 			== '' ? 'sprint' 		: getenv('
  * database. Uses database default not specified.
  *
  * sslmode =>
- * For Postgres specifies whether to 'disable', 'allow', 'prefer', or 'require' SSL for the 
+ * For Postgres specifies whether to 'disable', 'allow', 'prefer', or 'require' SSL for the
  * connection. The default value is 'allow'.
  *
  * unix_socket =>
@@ -84,7 +84,7 @@ class DATABASE_CONFIG {
 		'password' 		=> DB_PASS,
 		'database' 		=> DB_NAME,
 		'prefix' 		=> '',
-		
+
 		//'encoding' => 'utf8',
 	);
 
@@ -99,4 +99,3 @@ class DATABASE_CONFIG {
 		//'encoding' => 'utf8',
 	);
 }
-

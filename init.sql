@@ -134,7 +134,7 @@ DROP TABLE IF EXISTS `team`;
 CREATE TABLE `team` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  'method' ENUM('SCRUM','KANBAN') NOT NULL DEFAULT 'SCRUM',
+  `method` ENUM('SCRUM','KANBAN') NOT NULL DEFAULT 'SCRUM',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
