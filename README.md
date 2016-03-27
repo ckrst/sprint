@@ -1,3 +1,8 @@
+# Sprint
+
+[![Build Status](https://travis-ci.org/vinik/sprint.svg?branch=master)](https://travis-ci.org/vinik/sprint)
+
+
 # CakePHP
 
 [![Latest Stable Version](https://poser.pugx.org/cakephp/cakephp/v/stable.svg)](https://packagist.org/packages/cakephp/cakephp)
