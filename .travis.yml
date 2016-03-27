@@ -26,6 +26,7 @@ matrix:
 
 
 before_script:
+  - pwd
   - sh -c "composer install"
   - sudo locale-gen pt_BR
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test;'; fi"
