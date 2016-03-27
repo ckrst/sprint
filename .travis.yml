@@ -26,10 +26,7 @@ matrix:
 
 
 before_script:
-  - mkdir vendor
   - sh -c "composer install"
-  - ls vendor/
-  - sh -c "ln -s ~/.composer/vendor/phpunit/phpunit/PHPUnit ./vendors/PHPUnit"
   - sudo locale-gen pt_BR
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test;'; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test2;'; fi"
