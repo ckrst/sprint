@@ -27,8 +27,9 @@ matrix:
 
 before_script:
   - sh -c "composer global require 'phpunit/phpunit=3.7.33'"
+  - ls vendor/phpunit/phpunit
   - sh -c "ln -s ~/.composer/vendor/phpunit/phpunit/PHPUnit ./vendors/PHPUnit"
-  - sudo locale-gen de_DE
+  - sudo locale-gen pt_BR
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test;'; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test2;'; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test3;'; fi"
@@ -124,7 +125,6 @@ before_script:
 script:
   - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test core AllTests --stderr; fi"
   - sh -c "if [ '$PHPCS' = '1' ]; then ~/.composer/vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./lib/Cake; fi;"
-
 
 notifications:
   email: false
