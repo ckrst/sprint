@@ -27,7 +27,7 @@ matrix:
 
 before_script:
   - mkdir vendor
-  - sh -c "composer global require 'phpunit/phpunit=3.7.33'"
+  - sh -c "composer install"
   - ls vendor/
   - sh -c "ln -s ~/.composer/vendor/phpunit/phpunit/PHPUnit ./vendors/PHPUnit"
   - sudo locale-gen pt_BR
