@@ -27,6 +27,7 @@ matrix:
 
 before_script:
   - sh -c "composer global require 'phpunit/phpunit=3.7.33'"
+  - sh -c "mkdir ~/build/vinik/sprint/vendor"
   - sh -c "ln -s ~/.composer/vendor/phpunit/phpunit/PHPUnit ~/build/vinik/sprint/vendor/PHPUnit"
   - sudo locale-gen pt_BR
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test;'; fi"
