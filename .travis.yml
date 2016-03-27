@@ -26,8 +26,8 @@ matrix:
 
 
 before_script:
-  - pwd
-  - sh -c "composer install"
+  - sh -c "composer global require 'phpunit/phpunit=3.7.33'"
+  - sh -c "ln -s ~/.composer/vendor/phpunit/phpunit/PHPUnit ~/build/vinik/sprint/vendor/PHPUnit"
   - sudo locale-gen pt_BR
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test;'; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test2;'; fi"
@@ -35,7 +35,6 @@ before_script:
   - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'CREATE DATABASE cakephp_test;' -U postgres; fi"
   - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'CREATE SCHEMA test2;' -U postgres -d cakephp_test; fi"
   - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'CREATE SCHEMA test3;' -U postgres -d cakephp_test; fi"
-  - mkdir ./app/tmp/
   - chmod -R 777 ./app/tmp
   - sudo apt-get install lighttpd
   - sh -c "if [ '$PHPCS' = '1' ]; then composer global require 'cakephp/cakephp-codesniffer:1.*'; fi"
