@@ -6,6 +6,8 @@ CURRENT_DIR = Dir.pwd
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+  config.vm.box = 'vinik/ubuntu'
+
   config.vm.define "db" do |db|
     db.vm.provider "docker" do |docker|
       docker.name = "sprint_db"
@@ -40,6 +42,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         'OPENSHIFT_MYSQL_DB_PASSWORD' => 'changeme',
         'OPENSHIFT_GEAR_NAME' => 'sprint'
       }
+    end
+
+    web.vm.provider "virtualbox" do |virtualbox|
+      virtualbox.name = "aws_jumpstart"
+      virtualbox.memory = 512
+      config.vm.synced_folder CURRENT_DIR, "/workspace"
     end
 
     web.vm.provision "shell", inline: "echo 'foo'"
