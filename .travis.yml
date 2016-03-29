@@ -31,6 +31,7 @@ before_script:
   - sh -c "ln -s ~/.composer/vendor/phpunit/phpunit/PHPUnit ~/build/vinik/sprint/vendor/PHPUnit"
   - sudo locale-gen pt_BR
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test;'; fi"
+  - sh -c "if [ '$DB' = 'mysql' ]; then mysql cakephp_test < init.sql; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test2;'; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test3;'; fi"
   - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'CREATE DATABASE cakephp_test;' -U postgres; fi"
