@@ -1,4 +1,4 @@
-ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
+# ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
 
 VAGRANTFILE_API_VERSION = "2"
 
@@ -21,8 +21,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       docker.cmd = ["mysqld"]
     end
 
+    db.vm.provider "virtualbox" do |virtualbox|
+      virtualbox.name = "sprint_db"
+      virtualbox.memory = 512
+      config.vm.synced_folder CURRENT_DIR, "/workspace"
+    end
+
     db.vm.provision "shell", inline: "echo hello"
   end
+
 
   config.vm.define "web" do |web|
     web.vm.provider "docker" do |docker|
@@ -45,12 +52,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     web.vm.provider "virtualbox" do |virtualbox|
-      virtualbox.name = "aws_jumpstart"
+      virtualbox.name = "sprint_web"
       virtualbox.memory = 512
       config.vm.synced_folder CURRENT_DIR, "/workspace"
     end
 
     web.vm.provision "shell", inline: "echo 'foo'"
+
+    
 
   end
 
