@@ -6,7 +6,7 @@ CURRENT_DIR = Dir.pwd
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.box = 'vinik/ubuntu'
+  # config.vm.box = 'vinik/ubuntu'
 
   config.vm.define "db" do |db|
     db.vm.provider "docker" do |docker|
