@@ -1,4 +1,4 @@
-# ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
 
 VAGRANTFILE_API_VERSION = "2"
 
@@ -59,7 +59,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     web.vm.provision "shell", inline: "echo 'foo'"
 
-    
+
 
   end
 
