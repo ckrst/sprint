@@ -39,8 +39,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       docker.privileged = true
       docker.link 'sprint_db:sprint_db'
       docker.volumes = [
-        CURRENT_DIR + ":/var/www/html",
-        "/tmp" + ":/var/www/html/app/tmp"
+        CURRENT_DIR + ":/var/www/site",
+        CURRENT_DIR + "/vendor/phpunit/phpunit/PHPUnit:/var/www/site/vendor/phpunit/PHPUnit",
+        "/tmp" + ":/var/www/site/app/tmp"
       ]
       docker.env = {
         'OPENSHIFT_MYSQL_DB_HOST' => 'sprint_db',

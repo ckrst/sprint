@@ -28,10 +28,16 @@ EXPOSE 80
 # Copy site into place.
 ADD . /var/www/site
 
+WORKDIR /var/www/site
+
 RUN mkdir -p /var/www/site/app/tmp
 
 # Update the default apache site with the config we created.
 ADD vagrant/web/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
+
+RUN wget https://phar.phpunit.de/phpunit.phar
+RUN chmod +x phpunit.phar
+RUN mv phpunit.phar /usr/local/bin/phpunit
 
 # By default, simply start apache.
 CMD ["apache2ctl", "-D", "FOREGROUND"]

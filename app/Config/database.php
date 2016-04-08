@@ -1,9 +1,9 @@
 <?php
 
-define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST') 		== '' ? 'localhost' 	: getenv('OPENSHIFT_MYSQL_DB_HOST'));
+define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST') 		== '' ? '127.0.0.1' 	: getenv('OPENSHIFT_MYSQL_DB_HOST'));
 define('DB_PORT',	getenv('OPENSHIFT_MYSQL_DB_PORT'));
 define('DB_USER',	getenv('OPENSHIFT_MYSQL_DB_USERNAME') 	== '' ? 'root' 			: getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
-define('DB_PASS',	getenv('OPENSHIFT_MYSQL_DB_PASSWORD')) 	== '' ? '' 				: getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+define('DB_PASS',	getenv('OPENSHIFT_MYSQL_DB_PASSWORD')) 	== '' ? 'changeme' 		: getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
 define('DB_NAME',	getenv('OPENSHIFT_GEAR_NAME') 			== '' ? 'sprint' 		: getenv('OPENSHIFT_GEAR_NAME'));
 
 /**
@@ -89,13 +89,13 @@ class DATABASE_CONFIG {
 	);
 
 	public $test = array(
-		'datasource' => 'Database/Mysql',
-		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'test_database_name',
-		'prefix' => '',
-		//'encoding' => 'utf8',
+		'datasource' 	=> 'Database/Mysql',
+		'persistent' 	=> false,
+		'host' 			=> DB_HOST,
+		'login' 		=> DB_USER,
+		'password' 		=> DB_PASS,
+		'database' 		=> 'test_sprint',
+		'prefix' 		=> '',
+		//'encoding' 	=> 'utf8',
 	);
 }

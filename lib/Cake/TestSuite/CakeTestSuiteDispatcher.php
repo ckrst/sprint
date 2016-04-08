@@ -151,6 +151,9 @@ class CakeTestSuiteDispatcher {
 			} elseif (is_dir($vendor . DS . 'PHPUnit')) {
 				ini_set('include_path', $vendor . PATH_SEPARATOR . ini_get('include_path'));
 				break;
+			} elseif (is_dir($vendor . DS . 'phpunit/PHPUnit')) {
+				ini_set('include_path', $vendor . DS . 'phpunit' . PATH_SEPARATOR . ini_get('include_path'));
+				break;
 			} elseif (is_file($vendor . DS . 'phpunit.phar')) {
 				$backup = $GLOBALS['_SERVER']['SCRIPT_NAME'];
 				$GLOBALS['_SERVER']['SCRIPT_NAME'] = '-';
